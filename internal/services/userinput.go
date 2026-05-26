@@ -1,37 +1,31 @@
 package services
 
 import (
-	"fmt"
+	"bufio"
 	"log"
-
-	err "github.com/johngithiyon/Deskassist/internal/errors"
+	"os"
+	"strings"
+	//err "github.com/johngithiyon/Deskassist/internal/errors"
 )
 
 
 func GetInput() (string,string,error) {
 
-	  var command string
-	  var argument string  
-	
 	  log.Println("Enter What I Have To Do !")
 	  log.Println("Enter like [command] [argument]")
 
-	  lines,inputerr := fmt.Scanf("%s %s",&command,&argument)
+	 input := bufio.NewReader(os.Stdin)
 
-	  fmt.Scanln()
+	 inputstring,readerr := input.ReadString('\n')
 
-	  if lines != 2 {
-	  
-		  log.Println(err.ErrInputlines)
-		  return "","",err.ErrInputlines
-			
-		}
+	 userdata := strings.SplitN(inputstring," ",2)
 
-		if inputerr != nil {
+	  if readerr != nil {
+		  log.Println(readerr)
+	  }
 
-			 log.Println(inputerr)
-			 return "","",inputerr
-		}
+	  cmd := strings.TrimSpace(userdata[0])
+	  arg := strings.TrimSpace(userdata[1])
 
-	  return command,argument,nil 
+	  return cmd,arg,nil 
 }
