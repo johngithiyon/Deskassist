@@ -16,10 +16,13 @@ func Decodecmd(cmd string,arg string) {
 		} else if cmd == "openbrowser" {
 			 
 			commands.Openbrowser(arg)
-			
+
 		} else if cmd == "openfile" {
 			  
 			 commands.Openfile(arg)
+		} else if cmd=="deskassist" && arg == "--help"{
+			
+			 commands.Helpcmd()		  
 		}
         
 	     
