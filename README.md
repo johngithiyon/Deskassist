@@ -1,56 +1,99 @@
-````md
-# DeskAssist
+````md id="gk8d21"
+<div align="center">
 
-A lightweight terminal-based desktop assistant for Linux built with Go.
+# 🚀 DeskAssist
 
-DeskAssist allows users to interact with their system using simple natural language commands instead of remembering Linux commands.
+### AI-Powered Terminal Assistant for Linux
 
-It can:
-- Open files
-- Open folders
-- Launch applications
-- Open websites
-- Perform Google searches directly from the terminal
+<img src="https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go">
+<img src="https://img.shields.io/badge/Linux-Supported-FCC624?style=for-the-badge&logo=linux">
+<img src="https://img.shields.io/badge/Open%20Source-❤-red?style=for-the-badge">
 
 ---
 
-# Features
+### Open Files • Launch Apps • Search Google • Control Linux
 
-- Open folders in file manager
-- Open files with default applications
-- Launch applications like browser or VS Code
-- Perform Google searches
-- Simple natural language command handling
-- Lightweight and fast
-- Built entirely in Go
+A lightweight terminal-based assistant built with Go that allows users to interact with Linux using natural language commands instead of memorizing shell commands.
+
+</div>
 
 ---
 
-# Demo
+# ✨ Features
+
+- 📂 Open folders instantly
+- 📄 Open files with default applications
+- 🌐 Search Google directly from terminal
+- 💻 Launch applications like VS Code or Firefox
+- ⚡ Fast and lightweight
+- 🧠 Natural language command support
+- 🐧 Built for Linux
+- 🔧 Easy to extend and customize
+
+---
+
+# 🎬 Demo
 
 ```bash
 deskassist open downloads
+
 deskassist open vscode
+
+deskassist search kubernetes networking
+
+deskassist google golang concurrency
+
 deskassist open notes.txt
-deskassist search kubernetes ingress
-deskassist google golang tutorials
 ```
 
 ---
 
-# Project Structure
+# 🏗 Architecture
+
+```text
+                ┌─────────────────┐
+                │   CLI Input     │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Command Parser  │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Intent Engine   │
+                └────────┬────────┘
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+   ┌──────────┐   ┌──────────┐   ┌──────────┐
+   │ File Ops │   │ Browser  │   │ App Exec │
+   └────┬─────┘   └────┬─────┘   └────┬─────┘
+        │              │              │
+        ▼              ▼              ▼
+ Linux Filesystem   Google/Open    VSCode/Apps
+```
+
+---
+
+# 📁 Project Structure
 
 ```text
 deskassist/
 │
 ├── cmd/
-│   └── main.go
+│   └── deskassist/
+│       └── main.go
 │
 ├── internal/
-│   ├── commands/
 │   ├── parser/
 │   ├── executor/
-│   └── config/
+│   ├── commands/
+│   ├── config/
+│   └── logger/
+│
+├── pkg/
 │
 ├── go.mod
 ├── go.sum
@@ -59,16 +102,16 @@ deskassist/
 
 ---
 
-# Requirements
+# ⚙ Requirements
 
 - Linux
 - Go 1.22+
+- `xdg-open`
 - Visual Studio Code (optional)
-- xdg-open
 
 ---
 
-# Installation
+# 📦 Installation
 
 ## Clone Repository
 
@@ -82,45 +125,41 @@ cd deskassist
 
 ---
 
-# Build the Project
+# 🔨 Build
 
 ```bash
-go build -o deskassist ./cmd
-```
-
-This creates a binary named:
-
-```text
-deskassist
+go build -o deskassist ./cmd/deskassist
 ```
 
 ---
 
-# Run the Assistant
+# 🚀 Run
 
 ```bash
 ./deskassist
 ```
 
-Or install globally:
+---
+
+# 🌍 Global Installation
+
+Move the binary to system path:
 
 ```bash
 sudo mv deskassist /usr/local/bin/
 ```
 
-Now you can run:
+Now run from anywhere:
 
 ```bash
 deskassist
 ```
 
-from anywhere in the terminal.
-
 ---
 
-# Usage
+# 💡 Usage
 
-## Open Folder
+## 📂 Open Folder
 
 ```bash
 deskassist open downloads
@@ -128,7 +167,7 @@ deskassist open downloads
 
 ---
 
-## Open File
+## 📄 Open File
 
 ```bash
 deskassist open resume.pdf
@@ -136,7 +175,23 @@ deskassist open resume.pdf
 
 ---
 
-## Open Browser
+## 🌐 Google Search
+
+```bash
+deskassist search kubernetes ingress controller
+```
+
+---
+
+## 💻 Launch VS Code
+
+```bash
+deskassist open vscode
+```
+
+---
+
+## 🔥 Open Browser
 
 ```bash
 deskassist open firefox
@@ -144,150 +199,123 @@ deskassist open firefox
 
 ---
 
-## Open VS Code Project
+# 🧠 Example Internal Execution
+
+User Command:
 
 ```bash
-deskassist open nodefy
+deskassist search golang tutorials
 ```
 
----
-
-## Google Search
+Internally Executes:
 
 ```bash
-deskassist search kubernetes networking
-```
-
-or
-
-```bash
-deskassist google golang concurrency
+xdg-open "https://google.com/search?q=golang+tutorials"
 ```
 
 ---
 
-# Example Commands
+# 🛠 Technologies Used
 
-| Command | Action |
-|----------|---------|
-| `deskassist open downloads` | Opens Downloads folder |
-| `deskassist open vscode` | Opens VS Code |
-| `deskassist search docker` | Searches Google |
-| `deskassist open github.com` | Opens website |
-| `deskassist open notes.txt` | Opens file |
-
----
-
-# How It Works
-
-DeskAssist converts natural language terminal input into Linux system commands.
-
-Example:
-
-```text
-deskassist search golang
-```
-
-Internally executes:
-
-```bash
-xdg-open "https://google.com/search?q=golang"
-```
+| Technology | Purpose |
+|------------|----------|
+| Go | Core language |
+| os/exec | Process execution |
+| xdg-open | Open browser/files |
+| Linux | Operating system |
+| CLI Parsing | Natural language commands |
 
 ---
 
-# Technologies Used
+# 📚 Concepts Learned
 
-- Go
-- Linux Process Execution
-- os/exec
-- xdg-open
+This project teaches:
 
----
-
-# Core Concepts Learned
-
-This project demonstrates:
-- Process management
-- Linux command execution
+- Linux process management
 - CLI application development
 - Natural language parsing
 - System automation
 - File handling
 - Browser automation
+- OS-level command execution
+- Clean Go architecture
 
 ---
 
-# Future Improvements
+# 🔮 Future Improvements
 
-- Voice commands
-- AI-powered intent recognition
-- File indexing
-- Fuzzy search
-- Background daemon
-- Custom aliases
-- Plugin system
-- Multi-platform support
-
----
-
-# Example Internal Flow
-
-```text
-User Command
-      ↓
-Parser
-      ↓
-Intent Detection
-      ↓
-Command Executor
-      ↓
-Linux System
-```
+- 🎤 Voice commands
+- 🤖 AI-powered intent recognition
+- ⚡ Background daemon
+- 🧩 Plugin system
+- 📑 File indexing
+- 🔍 Fuzzy search
+- 🌐 Multi-platform support
+- 🧠 Local LLM integration
 
 ---
 
-# Run in Development
+# 🧪 Development
+
+Run directly:
 
 ```bash
-go run ./cmd/main.go
+go run ./cmd/deskassist/main.go
 ```
 
 ---
 
-# Example Code
+# 💻 Example Go Code
 
 ```go
-cmd := exec.Command(
-    "xdg-open",
-    "https://google.com/search?q=golang",
+package main
+
+import (
+	"net/url"
+	"os/exec"
 )
 
-err := cmd.Run()
+func main() {
+
+	query := url.QueryEscape("golang tutorial")
+
+	link := "https://google.com/search?q=" + query
+
+	cmd := exec.Command("xdg-open", link)
+
+	cmd.Run()
+}
 ```
 
 ---
 
-# Contributing
+# 🤝 Contributing
 
 Contributions are welcome.
 
-You can improve:
-- command parsing
-- AI integration
-- desktop integration
-- plugin support
-- Linux automation features
+Ideas:
+- Better NLP parser
+- Voice assistant support
+- Plugin SDK
+- Linux integrations
+- AI features
+- Smart file indexing
 
 ---
 
-# License
+# 📜 License
 
 MIT License
 
 ---
 
-# Author
+<div align="center">
 
-John Githiyon
+# 👨‍💻 Author
+
+### John Githiyon
+
+Built with Go ❤️ and Linux 🐧
+
+</div>
 ````
