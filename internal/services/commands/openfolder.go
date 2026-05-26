@@ -11,7 +11,7 @@ import (
 
 func Openfolder(arg string ) {
 	 
-      cmd :=  exec.Command("find","/home/john", "-type","d", "-name", arg)
+      cmd :=  exec.Command("find","/", "-type","d", "-name", arg)
 	 
 	  output,runerr := cmd.Output()
 
