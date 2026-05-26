@@ -14,8 +14,7 @@ func Appstartup() {
 	 
 	for(true) {
 
-		cmd,arg,inputerr  := services.GetInput()
-	
+		cmd,arg,inputerr  := services.GetInput()	
 		
 		if inputerr != nil {
 			return 
