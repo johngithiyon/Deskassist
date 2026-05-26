@@ -13,6 +13,9 @@ func Decodecmd(cmd string,arg string) {
              
 			 commands.Searchcmd(arg)
 		 	
+		} else if cmd == "openbrowser" {
+			 
+			commands.Openbrowser(arg)
 		}
         
 	     
