@@ -1,13 +1,16 @@
 package appstartup
 
-
 import (
+	"log"
+
 	"github.com/johngithiyon/Deskassist/internal/services"
 )
 
 
 
 func Appstartup() {
+
+	log.Println("To Get Help Use: deskassist --help")
 	 
 	for(true) {
 
