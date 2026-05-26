@@ -18,6 +18,8 @@ func GetInput() (string,string,error) {
 
 	  lines,inputerr := fmt.Scanf("%s %s",&command,&argument)
 
+	  fmt.Scanln()
+
 	  if lines != 2 {
 	  
 		  log.Println(err.ErrInputlines)
