@@ -71,7 +71,7 @@ DeskAssist converts user commands into Linux system operations and automates des
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/johngithiyon/deskassist.git
+git clone https://github.com/johngithiyon/Deskassist.git
 ```
 
 ```bash
@@ -91,7 +91,7 @@ go mod tidy
 ### 3. Build the Application
 
 ```bash
-go build -o deskassist ./cmd/deskassist
+go build -o deskassist ./cmd/server/main.go
 ```
 
 ---
