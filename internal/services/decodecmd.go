@@ -5,9 +5,9 @@ import "github.com/johngithiyon/Deskassist/internal/services/commands"
 
 func Decodecmd(cmd string,arg string) {
    
-	    if cmd == "open" {
+	    if cmd == "openfolder" {
 		   
-			 commands.Open(arg)
+			 commands.Openfolder(arg)
 			   
 		} else if cmd == "google" {
              
@@ -16,6 +16,10 @@ func Decodecmd(cmd string,arg string) {
 		} else if cmd == "openbrowser" {
 			 
 			commands.Openbrowser(arg)
+			
+		} else if cmd == "openfile" {
+			  
+			 commands.Openfile(arg)
 		}
         
 	     
