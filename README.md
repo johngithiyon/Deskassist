@@ -6,7 +6,6 @@
 
 [![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)](https://go.dev/)
 [![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)](https://kernel.org/)
-[![VSCode](https://img.shields.io/badge/VSCode-007ACC?logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
@@ -20,13 +19,13 @@ DeskAssist is a lightweight Linux desktop assistant built with Go that allows us
 Instead of remembering complex Linux commands, users can simply type human-friendly instructions like:
 
 ```bash
-deskassist open downloads
+openfile filename
 
-deskassist search kubernetes networking
+openfolder foldername
 
-deskassist open vscode
+openbrowser browsername
 
-deskassist find my resume
+google searchvalue
 ```
 
 DeskAssist converts user commands into Linux system operations and automates desktop workflows.
@@ -39,139 +38,11 @@ DeskAssist converts user commands into Linux system operations and automates des
 |---|---|
 | 📂 **Open Files & Folders** | Open files and directories directly from terminal commands |
 | 🌐 **Google Search** | Search the web instantly using natural language |
-| 💻 **Application Launcher** | Launch applications like Firefox, VS Code, Terminal, etc |
+| 💻 **Application Launcher** | Launch applications like Firefox,Chrome,Edge etc |
 | ⚡ **Natural Language Commands** | Interact without memorizing Linux commands |
-| 🔍 **File Finder** | Search files and folders quickly |
-| 🐧 **Linux Automation** | Automate common desktop operations |
-| 🧠 **Extensible Architecture** | Easily add new commands and features |
 
 ---
 
-## Workflow
-
-### 1️ User Runs DeskAssist
-
-Users interact directly from the terminal using simple commands.
-
-```bash
-deskassist open downloads
-```
-
----
-
-### 2️ Parse Natural Language
-
-DeskAssist parses the user input and detects the action and target.
-
-```text
-Action → open
-Target → downloads
-```
-
----
-
-### 3️ Intent Detection
-
-The assistant determines what operation needs to be performed.
-
-Examples:
-- Open Folder
-- Open File
-- Launch App
-- Search Google
-
----
-
-### 4️ Execute Linux Command
-
-DeskAssist converts the command into Linux system execution.
-
-Example:
-
-```bash
-xdg-open ~/Downloads
-```
-
----
-
-### 5️ Return Output
-
-The requested application, folder, browser, or file is opened automatically.
-
----
-
-## Example Commands
-
-```bash
-deskassist open downloads
-
-deskassist open vscode
-
-deskassist open github.com
-
-deskassist search golang concurrency
-
-deskassist find notes.txt
-
-deskassist open nodefy backend
-```
-
----
-
-## Architecture
-
-```text
-                ┌─────────────────┐
-                │   CLI Input     │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ Command Parser  │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ Intent Engine   │
-                └────────┬────────┘
-                         │
-          ┌──────────────┼──────────────┐
-          ▼              ▼              ▼
-   ┌──────────┐   ┌──────────┐   ┌──────────┐
-   │ File Ops │   │ Browser  │   │ App Exec │
-   └────┬─────┘   └────┬─────┘   └────┬─────┘
-        │              │              │
-        ▼              ▼              ▼
- Linux Filesystem   Google/Open    VSCode/Apps
-```
-
----
-
-## Project Structure
-
-```text
-deskassist/
-│
-├── cmd/
-│   └── deskassist/
-│       └── main.go
-│
-├── internal/
-│   ├── parser/
-│   ├── intent/
-│   ├── executor/
-│   ├── commands/
-│   ├── config/
-│   └── logger/
-│
-├── pkg/
-│
-├── go.mod
-├── go.sum
-└── README.md
-```
-
----
 
 ## Tech Stack
 
@@ -190,8 +61,7 @@ deskassist/
 ### Prerequisites
 
 - [Go](https://go.dev/doc/install) (v1.22+)
-- Linux Operating System
-- `xdg-open`
+- [Linux Operating System](https://ubuntu.com/download/desktop)
 - [Git](https://git-scm.com/downloads)
 
 ---
@@ -201,7 +71,7 @@ deskassist/
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/deskassist.git
+git clone https://github.com/johngithiyon/deskassist.git
 ```
 
 ```bash
@@ -242,65 +112,6 @@ from anywhere in the terminal.
 
 ---
 
-## Running the Application
-
-```bash
-deskassist open downloads
-```
-
----
-
-## Development Mode
-
-```bash
-go run ./cmd/deskassist/main.go
-```
-
----
-
-## Internal Execution Example
-
-User Command:
-
-```bash
-deskassist search golang tutorial
-```
-
-Internally Executes:
-
-```bash
-xdg-open "https://google.com/search?q=golang+tutorial"
-```
-
----
-
-## Future Improvements
-
-- 🎤 Voice Assistant
-- 🤖 AI-powered command understanding
-- 📂 Smart file indexing
-- ⚡ Background daemon
-- 🔍 Fuzzy search support
-- 🧩 Plugin system
-- 🌐 Multi-platform support
-- 🧠 Local LLM integration
-
----
-
-## Concepts Learned
-
-DeskAssist demonstrates:
-
-- Linux process management
-- CLI application development
-- Natural language parsing
-- System automation
-- Process execution
-- File system interaction
-- Browser automation
-- Go project architecture
-
----
 
 ## License
 
@@ -310,6 +121,5 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-### Built with Go ❤️ and Linux 🐧
 
 </div>
