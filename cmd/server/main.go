@@ -1,16 +1,22 @@
 package main
 
 import (
-	"log"
-
 	"github.com/johngithiyon/Deskassist/internal/services"
 )
 
 func main() {
 
-	cmd,arg,_ := services.GetInput()
+	for(true) {
 
-	log.Println(cmd)
-	log.Println(arg)
+	cmd,arg,inputerr  := services.GetInput()
+
+	
+	if inputerr != nil {
+		return 
+	}
+
+    services.Decodecmd(cmd,arg)
+
+}
 
 }
